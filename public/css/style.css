@@ -1,0 +1,186 @@
+/* public/css/style.css */
+:root {
+    --primary-color: #007BFF;
+    --primary-hover: #0056b3;
+    --success-color: #28a745;
+    --success-hover: #218838;
+    --danger-color: #dc3545;
+    --danger-hover: #c82333;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --light-gray: #f9f9f9;
+    --border-color: #ddd;
+    --shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: 0.3s ease;
+    --breakpoint-mobile: 768px;
+}
+
+/* Réinitialisation de base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: #fff;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input:focus, select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color var(--transition), transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.02);
+}
+
+button#ajouter-produit {
+    background-color: var(--success-color);
+    margin-top: 10px;
+    width: 100%;
+}
+
+button#ajouter-produit:hover {
+    background-color: var(--success-hover);
+}
+
+.product-list {
+    margin-top: 20px;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: box-shadow var(--transition);
+}
+
+.product-item:hover {
+    box-shadow: var(--shadow);
+}
+
+.product-item input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.product-item button.supprimer-produit {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color var(--transition), transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.product-item button.supprimer-produit:hover {
+    background-color: var(--danger-hover);
+    transform: scale(1.05);
+}
+
+.total {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+    color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: var(--breakpoint-mobile)) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input, select, button {
+        font-size: 14px;
+    }
+
+    .product-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .product-item input {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .product-item button.supprimer-produit {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
